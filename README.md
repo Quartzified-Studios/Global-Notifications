@@ -1,4 +1,5 @@
 # Global-Notifications
+[Uses Unity Mobile Notifications]
 
 ## Features
 - Create both Android & iOS notifications in one go.
