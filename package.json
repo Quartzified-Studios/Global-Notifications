@@ -1,0 +1,26 @@
+{
+  "name": "com.quartzified.notifications",
+  "version": "0.1.0",
+  "displayName": "Global Notifications",
+  "description": "Create mobile specific notifications fast and easy.",
+  "unity": "2021.3",
+  "unityRelease": "5f1",
+  "documentationUrl": "",
+  "changelogUrl": "",
+  "licensesUrl": "",
+  "keywords": [
+    "Quartzified",
+    "Notifications",
+    "Platform",
+    "Mobile"
+    ],
+  "author": {
+    "name": "Quartzi",
+    "email": "virgil@quartzi.io",
+    "url": "https://www.quartzi.io"
+  },
+  "dependencies": {
+    "com.unity.mobile.notifications": "2.0.2"
+  },
+  "type": "tool"
+}
