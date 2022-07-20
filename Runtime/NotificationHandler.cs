@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 
+
 #if UNITY_ANDROID
 using Unity.Notifications.Android;
 #endif
@@ -102,12 +103,55 @@ namespace Quartzified.Notifications
         /// <summary>
         /// Use this method to register android specific notification channels
         /// </summary>
+        /// <param name="channelObject"></param>
+        public static void RegisterAndroidChannel(GlobalChannelObject channelObject)
+        {
+            if (string.IsNullOrWhiteSpace(channelObject.id))
+            {
+                Debug.LogWarning("[Notifications] Tried creating notification channel without an ID!\nCreation was canceled.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(channelObject.channelName))
+            {
+                Debug.LogWarning("[Notifications] Tried creating notification channel without a name!\nCreation was canceled.");
+                return;
+            }
+
+#if UNITY_ANDROID
+            var channel = new AndroidNotificationChannel()
+            {
+                Id = channelObject.id,
+                Name = channelObject.channelName,
+                Importance = (Importance)channelObject.importance,
+                Description = channelObject.description,
+            };
+
+            AndroidNotificationCenter.RegisterNotificationChannel(channel);
+#endif
+        }
+
+        /// <summary>
+        /// Use this method to register android specific notification channels
+        /// </summary>
         /// <param name="_id">Channel Identifier</param>
         /// <param name="_name">Channel Name</param>
         /// <param name="_description">Channel Description</param>
         /// <param name="_importance">Channel Importance [None = 1, Low = 2, Default = 3, High = 4]</param>
         public static void RegisterAndroidChannel(string _id, string _name, string _description, int _importance = 3)
         {
+            if (string.IsNullOrWhiteSpace(_id))
+            {
+                Debug.LogWarning("[Notifications] Tried creating notification channel without an ID!\nCreation was canceled.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(_name))
+            {
+                Debug.LogWarning("[Notifications] Tried creating notification channel without a name!\nCreation was canceled.");
+                return;
+            }
+
 #if UNITY_ANDROID
             var channel = new AndroidNotificationChannel()
             {
