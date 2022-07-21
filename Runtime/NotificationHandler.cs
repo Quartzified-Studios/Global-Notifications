@@ -3,7 +3,6 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 
-
 #if UNITY_ANDROID
 using Unity.Notifications.Android;
 #endif
@@ -189,6 +188,35 @@ namespace Quartzified.Notifications
             }
 #endif
             yield return null;
+        }
+
+        /// <summary>
+        /// Cancel all pending notifications & remove all previously shown by the app.
+        /// </summary>
+        public static void CancelAllNotifications()
+        {
+#if UNITY_ANDROID
+            AndroidNotificationCenter.CancelAllNotifications();
+#endif
+
+#if UNITY_IOS
+            iOSNotificationCenter.RemoveAllDeliveredNotifications();
+            iOSNotificationCenter.RemoveAllScheduledNotifications();
+#endif
+        }
+
+        /// <summary>
+        /// Cancel all pending notifications.
+        /// </summary>
+        public static void CancelAllScheduledNotifications()
+        {
+#if UNITY_ANDROID
+            AndroidNotificationCenter.CancelAllScheduledNotifications();
+#endif
+
+#if UNITY_IOS
+            iOSNotificationCenter.RemoveAllScheduledNotifications();
+#endif
         }
     }
 }
