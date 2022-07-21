@@ -2,7 +2,7 @@
 [Uses Unity Mobile Notifications]
 
 ## Features
-- Create both Android & iOS notifications in one go.
+- Create/Cancel both Android & iOS notifications in one go.
 - Schedule both Android & iOS Notifications at once.
 - Create & Register Notification through ScriptableObjects
 - Create & Register Android Channels through ScriptableObjects
