@@ -52,6 +52,8 @@ namespace Quartzified.Notifications
             if (!string.IsNullOrEmpty(notification.largeIcon))
                 androidNotification.LargeIcon = notification.largeIcon;
 
+            androidNotification.FireTime = notification.fireTime;
+
             if (notification.repeatInterval.TotalSeconds > 0)
                 androidNotification.RepeatInterval = notification.repeatInterval;
 
